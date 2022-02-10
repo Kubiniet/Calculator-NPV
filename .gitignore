@@ -1,0 +1,12 @@
+# Environments
+.env
+env
+
+#Django
+db.sqlite3
+
+
+### VisualStudioCode template
+.vscode/*
+.vscode/settings.json
+

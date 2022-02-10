@@ -1,0 +1,4 @@
+SECRET_KEY=django-insecure-k#6sg&3_-ja8en1hj4(ii7r%5_b^1@1jcf7af^fv5!4_)j6o+z
+DEBUG=True
+IP=127.0.0.1
+PORT=8000
