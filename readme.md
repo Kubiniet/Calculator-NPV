@@ -2,11 +2,11 @@
 
 ### Instalation 📋
 
-"""
+'''
 virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
-"""
+'''
 
 ### Environments
 
@@ -20,7 +20,7 @@ _python GUI/main.py работает без проблем но pyinstaller не
 архива .env и этих модулей в сборке,_
 _должен читать больше документацию_
 
-"""
+'''
 Первая попытка
 import environ
 
@@ -37,4 +37,4 @@ env_path = Path(**file**).resolve().parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
 IP = os.environ.get('IP')
 PORT = os.environ.get('PORT')
-"""
+'''
