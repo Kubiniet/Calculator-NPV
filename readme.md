@@ -6,7 +6,12 @@
 virtualenv env
 source env/bin/activate
 pip install -r requirements.txt
+python manage.py runserver
+cd GUI/
+python main.py
 ```
+### Client GUI
+_GUI/main_
 
 ### Environments
 
