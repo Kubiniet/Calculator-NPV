@@ -29,7 +29,7 @@ _должен читать больше документацию_
 
 ```
 import environ
-root = environ.Path(**file**) - 2
+root = environ.Path(__file__) - 2
 env = environ.Env()
 environ.Env.read_env(os.path.join(root, '.env'))
 IP = env.str('IP', default='127.0.0.1')
@@ -40,7 +40,7 @@ PORT = env.str('PORT', default='8000')
 ```
 from pathlib import Path
 from dotenv import load_dotenv
-env_path = Path(**file**).resolve().parent.parent / '.env'
+env_path = Path(__file__).resolve().parent.parent / '.env'
 load_dotenv(dotenv_path=env_path)
 IP = os.environ.get('IP')
 PORT = os.environ.get('PORT')
