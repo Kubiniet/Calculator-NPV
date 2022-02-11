@@ -10,12 +10,8 @@ class NPVAPIView(APIView):
 
     serializer_class = NPVSerializer
 
-    def get(self, request):
-        npv = current_npv()
-        year = 2050
-        return Response({'npv': npv, 'year': year})
-
     def post(self, request):
+
         serializer = self.serializer_class(data=request.data)
         npv = 0
         rate = 0.2

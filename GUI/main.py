@@ -3,10 +3,6 @@ import requests
 import os
 
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-
-IP = '127.0.0.1'
-PORT = '8000'
 
 qtCreatorFile = "npv.ui"
 
@@ -23,18 +19,27 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def calc(self):
         """Расчет"""
         self.error.setText("")
-        url = f"http://{IP}:{PORT}/".format(IP, PORT)
+        url = str(self.url.toPlainText())
         year = int(self.year.toPlainText())
         rate = float(self.rate.toPlainText())
-        r = requests.post(url, data={'year': year, "rate": rate})
-        json = r.json()
-
         try:
+            r = requests.post(url, data={'year': year, "rate": rate})
+            json = r.json()
             answer = json['npv']
             self.npv.setText(str(answer))
+
         except KeyError:
+            r = requests.post(url, data={'year': year, "rate": rate})
+            json = r.json()
             error = json['error']['year'][0]
             self.error.setText(str(error))
+        except requests.exceptions.ConnectionError:
+            self.error.setText(
+                "Не удалось соединениться,попробуйте другой URL")
+        except requests.exceptions.InvalidURL:
+            self.error.setText(
+                "Неправильный URL")
+            self.url.setText("http://127.0.0.1:8000")
 
 
 if __name__ == "__main__":
