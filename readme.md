@@ -13,7 +13,7 @@ python main.py
 
 ### Client GUI
 
-_GUI/main_
+_GUI/npv_
 
 ### Environments
 
